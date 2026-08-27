@@ -104,7 +104,7 @@ cd tools/patch-pet
 python patch_pet.py               # 自动定位 WorkBuddy resources/app.asar 并注入（自动备份原文件）
 python patch_pet.py --check       # 校验是否已注入
 python patch_pet.py --revert      # 从最近的备份恢复原版（回滚）
-python patch_pet.py --pet my.png  # 自定义宠物图（推荐透明背景 PNG，128px 显示）
+python patch_pet.py --pet my.png  # 自定义宠物图（推荐透明背景 PNG，128px 显示）；已注入后可重复执行换皮
 python patch_pet.py --dry-run     # 只预览，不写任何文件
 ```
 
