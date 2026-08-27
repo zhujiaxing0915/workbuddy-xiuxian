@@ -95,6 +95,22 @@ xiuxian-skill/
 - Python 3.10+（**仅标准库，无需 pip 安装**；腾讯在线后端为可选项）。
 - 本 skill 零第三方依赖、离线可用；全部数据落在用户级 `~/.workbuddy/xiuxian/`。
 
+## 🐾 右下角宠物浮窗（可选增强）
+
+skill 默认**不修改 WorkBuddy 本体**。若希望 WorkBuddy 右下角出现一只宠物浮窗（透明背景、上下浮动，**点击打开修仙洞府主页**、悬停显示手型），使用仓库自带的通用注入工具：
+
+```bash
+cd tools/patch-pet
+python patch_pet.py               # 自动定位 WorkBuddy resources/app.asar 并注入（自动备份原文件）
+python patch_pet.py --check       # 校验是否已注入
+python patch_pet.py --revert      # 从最近的备份恢复原版（回滚）
+python patch_pet.py --pet my.png  # 自定义宠物图（推荐透明背景 PNG，128px 显示）
+python patch_pet.py --dry-run     # 只预览，不写任何文件
+```
+
+- **原理**：纯 Python 解析/重打包 asar（与 @electron/asar 兼容），仅注入两条内容——主 CSS 的浮窗样式 + `index.html` 的点击脚本；**unpacked 树不动**，因此兼容任意 WorkBuddy 版本，且修改前自动备份、`--revert` 一键还原。
+- 注入后**重启 WorkBuddy** 生效；若未安装本 skill 的洞府主页，点击浮窗会打开一个不存在的本地文件（可忽略，或先用 `/xiuxian 状态` 生成洞府页）。
+
 ### 导入分发版（给其他智能体）
 - 本仓库顶层目录名应为 `xiuxian`（与 `SKILL.md` 中 `name: xiuxian` 一致），解压/拷贝后即为 `~/.workbuddy/skills/xiuxian/`，WorkBuddy 重启或刷新技能列表后即可用 `/xiuxian` 调用。
 - 无任何第三方依赖与网络要求：离线本地后端默认可用，全部数据落在用户级 `~/.workbuddy/xiuxian/`。
