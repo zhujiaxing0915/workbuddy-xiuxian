@@ -30,6 +30,7 @@ import glob
 import hashlib
 import json
 import os
+import re
 import shutil
 import struct
 import sys
@@ -147,8 +148,20 @@ def _load_pet_b64(pet_png):
     return base64.b64encode(png).decode("ascii")
 
 
+PET_B64_RE = re.compile(r"data:image/png;base64,[A-Za-z0-9+/=]+")
+
+
 def inject_css(css_text, pet_b64):
     if PET_CSS_MARKER in css_text:
+        # 已注入：仅替换 PET 块内的宠物图 base64（支持换皮，不触碰 CSS 其它部分）
+        start = css_text.find("/* WORKBUDDY_PET_FLOAT */")
+        end_marker = "@keyframes petFloatY"
+        end = css_text.find(end_marker, start) if start >= 0 else -1
+        if start >= 0 and end > start:
+            block = css_text[start:end]
+            block2, n = PET_B64_RE.subn("data:image/png;base64," + pet_b64, block, count=1)
+            if n:
+                return css_text[:start] + block2 + css_text[end:]
         return css_text  # 幂等
     block = ("\n/* WORKBUDDY_PET_FLOAT */\n"
              "body::after{content:url(data:image/png;base64," + pet_b64 + ");"
