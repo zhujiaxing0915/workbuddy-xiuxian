@@ -1,0 +1,18 @@
+{
+  "gongfa": [
+    {"name": "符箓", "icon": "skill/fulu", "unlock_realm": "练气", "unlock_sub": 1,
+     "keywords": ["docx", "doc", "word", "write", "humanizer", "润色", "文档", "写作", "pdf", "ppt", "excel-generation"]},
+    {"name": "阵盘", "icon": "skill/zhenpan", "unlock_realm": "筑基", "unlock_sub": 1,
+     "keywords": ["sheet", "excel", "xls", "csv", "table", "表格", "数据", "报表", "pivot"]},
+    {"name": "炼器", "icon": "skill/lianqi", "unlock_realm": "元婴", "unlock_sub": 1,
+     "keywords": ["imagegen", "video", "3d", "image", "图片", "视频", "生图", "模型", "video-fx"]},
+    {"name": "傀儡", "icon": "skill/kuilei", "unlock_realm": "元婴", "unlock_sub": 1,
+     "keywords": ["browser", "agent-browser", "automation", "自动化", "浏览器", "rpa"]},
+    {"name": "望气", "icon": "skill/wangqi", "unlock_realm": "金丹", "unlock_sub": 1,
+     "keywords": ["websearch", "webfetch", "search", "研究", "搜索", "抓取", "fetch"]},
+    {"name": "传音", "icon": "skill/chuanyin", "unlock_realm": "金丹", "unlock_sub": 1,
+     "keywords": ["mail", "email", "消息", "通讯", "邮件", "im"]},
+    {"name": "杂学", "icon": "skill/zaxue", "unlock_realm": "练气", "unlock_sub": 1,
+     "keywords": []}
+  ]
+}

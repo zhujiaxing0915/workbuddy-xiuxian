@@ -1,0 +1,190 @@
+{
+  "realm/qi_training": {
+    "label": "练气",
+    "path": "assets/icons/realm/realm_qi_training.png"
+  },
+  "realm/zhuj": {
+    "label": "筑基",
+    "path": "assets/icons/realm/realm_zhuj.png"
+  },
+  "realm/jindan": {
+    "label": "金丹",
+    "path": "assets/icons/realm/realm_jindan.png"
+  },
+  "realm/yuanying": {
+    "label": "元婴",
+    "path": "assets/icons/realm/realm_yuanying.png"
+  },
+  "realm/huashen": {
+    "label": "化神",
+    "path": "assets/icons/realm/realm_huashen.png"
+  },
+  "realm/dacheng": {
+    "label": "大乘",
+    "path": "assets/icons/realm/realm_dacheng.png"
+  },
+  "realm/feisheng": {
+    "label": "飞升",
+    "path": "assets/icons/realm/realm_feisheng.png"
+  },
+  "skill/fulu": {
+    "label": "符箓系",
+    "path": "assets/icons/skill/skill_fulu.png"
+  },
+  "skill/zhenpan": {
+    "label": "阵盘系",
+    "path": "assets/icons/skill/skill_zhenpan.png"
+  },
+  "skill/lianqi": {
+    "label": "炼器系",
+    "path": "assets/icons/skill/skill_lianqi.png"
+  },
+  "skill/kuilei": {
+    "label": "傀儡系",
+    "path": "assets/icons/skill/skill_kuilei.png"
+  },
+  "skill/wangqi": {
+    "label": "望气系",
+    "path": "assets/icons/skill/skill_wangqi.png"
+  },
+  "skill/chuanyin": {
+    "label": "传音系",
+    "path": "assets/icons/skill/skill_chuanyin.png"
+  },
+  "skill/zaxue": {
+    "label": "杂学系",
+    "path": "assets/icons/skill/skill_zaxue.png"
+  },
+  "resource/lingshi": {
+    "label": "灵力石",
+    "path": "assets/icons/resource/resource_lingshi.png"
+  },
+  "resource/tianfu_dian": {
+    "label": "天赋点",
+    "path": "assets/icons/resource/resource_tianfu_dian.png"
+  },
+  "talent/root": {
+    "label": "灵脉根",
+    "path": "assets/icons/talent/talent_root.png"
+  },
+  "talent/xiuwei": {
+    "label": "悟性",
+    "path": "assets/icons/talent/talent_xiuwei.png"
+  },
+  "talent/shuli": {
+    "label": "巧手",
+    "path": "assets/icons/talent/talent_shuli.png"
+  },
+  "talent/xibie": {
+    "label": "专精",
+    "path": "assets/icons/talent/talent_xibie.png"
+  },
+  "reward/baowu": {
+    "label": "天材地宝",
+    "path": "assets/icons/reward/reward_baowu.png"
+  },
+  "reward/canjiuan": {
+    "label": "功法残卷",
+    "path": "assets/icons/reward/reward_canjiuan.png"
+  },
+  "reward/dunwu": {
+    "label": "顿悟",
+    "path": "assets/icons/reward/reward_dunwu.png"
+  },
+  "battle/lundao": {
+    "label": "论道",
+    "path": "assets/icons/battle/battle_lundao.png"
+  },
+  "battle/luebao": {
+    "label": "掠宝",
+    "path": "assets/icons/battle/battle_luebao.png"
+  },
+  "battle/yanwu": {
+    "label": "演武",
+    "path": "assets/icons/battle/battle_yanwu.png"
+  },
+  "pet/pet_linghu": {
+    "label": "练气·灵狐",
+    "path": "assets/icons/pet/pet_linghu.png"
+  },
+  "pet/pet_linghu_you": {
+    "label": "练气·灵狐·幼体",
+    "path": "assets/icons/pet/pet_linghu_you.png"
+  },
+  "pet/pet_linghu_cheng": {
+    "label": "练气·灵狐·成体",
+    "path": "assets/icons/pet/pet_linghu_cheng.png"
+  },
+  "pet/pet_linglu": {
+    "label": "筑基·灵鹿",
+    "path": "assets/icons/pet/pet_linglu.png"
+  },
+  "pet/pet_linglu_you": {
+    "label": "筑基·灵鹿·幼体",
+    "path": "assets/icons/pet/pet_linglu_you.png"
+  },
+  "pet/pet_linglu_cheng": {
+    "label": "筑基·灵鹿·成体",
+    "path": "assets/icons/pet/pet_linglu_cheng.png"
+  },
+  "pet/pet_huoluan": {
+    "label": "金丹·火鸾",
+    "path": "assets/icons/pet/pet_huoluan.png"
+  },
+  "pet/pet_huoluan_you": {
+    "label": "金丹·火鸾·幼体",
+    "path": "assets/icons/pet/pet_huoluan_you.png"
+  },
+  "pet/pet_huoluan_cheng": {
+    "label": "金丹·火鸾·成体",
+    "path": "assets/icons/pet/pet_huoluan_cheng.png"
+  },
+  "pet/pet_yuqilin": {
+    "label": "元婴·玉麒麟",
+    "path": "assets/icons/pet/pet_yuqilin.png"
+  },
+  "pet/pet_yuqilin_you": {
+    "label": "元婴·玉麒麟·幼体",
+    "path": "assets/icons/pet/pet_yuqilin_you.png"
+  },
+  "pet/pet_yuqilin_cheng": {
+    "label": "元婴·玉麒麟·成体",
+    "path": "assets/icons/pet/pet_yuqilin_cheng.png"
+  },
+  "pet/pet_qinglong": {
+    "label": "化神·青龙",
+    "path": "assets/icons/pet/pet_qinglong.png"
+  },
+  "pet/pet_qinglong_you": {
+    "label": "化神·青龙·幼体",
+    "path": "assets/icons/pet/pet_qinglong_you.png"
+  },
+  "pet/pet_qinglong_cheng": {
+    "label": "化神·青龙·成体",
+    "path": "assets/icons/pet/pet_qinglong_cheng.png"
+  },
+  "pet/pet_zhuque": {
+    "label": "合体·朱雀",
+    "path": "assets/icons/pet/pet_zhuque.png"
+  },
+  "pet/pet_zhuque_you": {
+    "label": "合体·朱雀·幼体",
+    "path": "assets/icons/pet/pet_zhuque_you.png"
+  },
+  "pet/pet_zhuque_cheng": {
+    "label": "合体·朱雀·成体",
+    "path": "assets/icons/pet/pet_zhuque_cheng.png"
+  },
+  "pet/pet_shenlong": {
+    "label": "大乘·神龙",
+    "path": "assets/icons/pet/pet_shenlong.png"
+  },
+  "pet/pet_shenlong_you": {
+    "label": "大乘·神龙·幼体",
+    "path": "assets/icons/pet/pet_shenlong_you.png"
+  },
+  "pet/pet_shenlong_cheng": {
+    "label": "大乘·神龙·成体",
+    "path": "assets/icons/pet/pet_shenlong_cheng.png"
+  }
+}

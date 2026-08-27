@@ -1,0 +1,19 @@
+{
+  "rewards": [
+    {"id": "stone", "name": "灵力石", "type": "lingshi", "icon": "resource/lingshi",
+     "amount": [2, 4], "condition": "streak>=3", "weight": 30,
+     "desc": "连续活跃≥3天 额外掉落灵力石"},
+    {"id": "talent_point", "name": "天赋点", "type": "talent_point", "icon": "resource/tianfu_dian",
+     "amount": 1, "condition": "complex_today>=2", "weight": 20,
+     "desc": "当日完成复杂任务≥2 获得天赋点"},
+    {"id": "baowu", "name": "天材地宝", "type": "xiuwei", "icon": "reward/baowu",
+     "amount": [15, 35], "condition": "night_or_holiday", "weight": 25,
+     "desc": "夜间/节假日时段 获得修为"},
+    {"id": "canjuan", "name": "功法残卷", "type": "prof_boost", "icon": "reward/canjiuan",
+     "amount": 1, "condition": "new_skill_first", "weight": 15,
+     "desc": "首次修炼某新功法 熟练度加速"},
+    {"id": "dunwu", "name": "顿悟", "type": "xiuwei", "icon": "reward/dunwu",
+     "amount": [20, 50], "condition": "breakthrough_today", "weight": 10,
+     "desc": "突破境界当日 修为暴击"}
+  ]
+}

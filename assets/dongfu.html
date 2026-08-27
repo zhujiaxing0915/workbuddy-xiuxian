@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>修仙洞府 · 修炼主页</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Noto Serif SC', serif;
+    color: #e9e4ff;
+    min-height: 100vh;
+    background:
+      radial-gradient(1200px 600px at 15% -5%, rgba(124,92,255,0.32), transparent 60%),
+      radial-gradient(900px 500px at 95% 10%, rgba(245,166,35,0.18), transparent 55%),
+      linear-gradient(160deg, #0b0820 0%, #120d2e 45%, #1a1142 100%);
+    padding: 36px 20px 70px;
+    overflow-x: hidden;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; position: relative; z-index: 2; }
+
+  .particle { position: fixed; border-radius: 50%; background: radial-gradient(circle, rgba(155,125,255,0.9), rgba(155,125,255,0)); pointer-events: none; z-index: 1; animation: float linear infinite; }
+  @keyframes float { 0% { transform: translateY(110vh) scale(0.6); opacity: 0; } 10% { opacity: .8; } 90% { opacity: .6; } 100% { transform: translateY(-10vh) scale(1); opacity: 0; } }
+
+  .header { display: flex; align-items: center; gap: 18px; margin-bottom: 28px; }
+  .avatar {
+    width: 76px; height: 76px; border-radius: 50%;
+    background: linear-gradient(145deg, rgba(124,92,255,0.35), rgba(245,166,35,0.22));
+    border: 1.5px solid rgba(155,125,255,0.5);
+    box-shadow: 0 0 26px rgba(124,92,255,0.45), inset 0 0 18px rgba(245,166,35,0.18);
+    display: flex; align-items: center; justify-content: center; overflow: hidden;
+  }
+  .avatar img { width: 60px; height: 60px; object-fit: contain; filter: drop-shadow(0 0 6px rgba(155,125,255,0.6)); }
+  .h-tag { font-family: 'Ma Shan Zheng', cursive; font-size: 13px; letter-spacing: 2px; color: #ffcf6b; opacity: .9; }
+  .h-name { font-size: 24px; font-weight: 700; letter-spacing: 1px; }
+  .h-sub { font-size: 13px; color: #b6aee0; margin-top: 3px; }
+  .h-sub b { color: #c9b8ff; font-weight: 500; }
+
+  .card {
+    background: rgba(255,255,255,0.055);
+    border: 1px solid rgba(155,125,255,0.22);
+    border-radius: 18px;
+    padding: 18px 20px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+
+  .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 18px; }
+  .metric { display: flex; align-items: center; gap: 12px; }
+  .m-ico { width: 42px; height: 42px; border-radius: 12px; background: rgba(124,92,255,0.16); display: flex; align-items: center; justify-content: center; flex: none; }
+  .m-ico img { width: 30px; height: 30px; object-fit: contain; }
+  .m-label { font-size: 12px; color: #b6aee0; }
+  .m-val { font-size: 23px; font-weight: 700; color: #fff; line-height: 1.1; }
+  .m-val span { font-size: 13px; color: #ffcf6b; font-weight: 500; margin-left: 2px; }
+
+  .grid2 { display: grid; grid-template-columns: 1.05fr 1fr; gap: 18px; margin-bottom: 18px; }
+  .panel-title { font-size: 15px; font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .panel-title::before { content: ""; width: 4px; height: 15px; border-radius: 3px; background: linear-gradient(#9b7dff, #f5a623); }
+
+  .ring-wrap { display: flex; align-items: center; gap: 22px; }
+  .ring { position: relative; width: 150px; height: 150px; flex: none; }
+  .ring svg { transform: rotate(-90deg); }
+  .ring .center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  .ring .pct { font-size: 26px; font-weight: 700; color: #fff; }
+  .ring .cap { font-size: 11px; color: #b6aee0; }
+  .ring-info .line { font-size: 13px; color: #d6cfff; margin-bottom: 7px; }
+  .ring-info .line b { color: #ffcf6b; }
+  .bar-track { height: 7px; background: rgba(255,255,255,0.1); border-radius: 99px; overflow: hidden; margin-top: 4px; }
+  .bar-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, #9b7dff, #f5a623); box-shadow: 0 0 10px rgba(155,125,255,0.6); }
+
+  .skill-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .skill-ico { width: 30px; height: 30px; flex: none; }
+  .skill-ico img { width: 100%; height: 100%; object-fit: contain; }
+  .skill-name { font-size: 13px; width: 38px; flex: none; color: #d6cfff; }
+  .skill-bar { flex: 1; height: 8px; background: rgba(255,255,255,0.1); border-radius: 99px; overflow: hidden; }
+  .skill-bar > div { height: 100%; border-radius: 99px; background: linear-gradient(90deg, #7c5cff, #b69bff); }
+  .skill-num { font-size: 12px; color: #ffcf6b; width: 36px; text-align: right; flex: none; }
+
+  .rank-line { display: flex; justify-content: space-between; font-size: 13px; color: #d6cfff; padding: 9px 0; border-bottom: 1px dashed rgba(155,125,255,0.18); }
+  .rank-line:last-child { border-bottom: none; }
+  .rank-line b { color: #ffcf6b; font-weight: 700; }
+
+  .atlas { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; margin-top: 6px; }
+  .atlas-item { text-align: center; }
+  .atlas-ico { width: 46px; height: 46px; margin: 0 auto 5px; border-radius: 12px; background: rgba(124,92,255,0.14); border: 1px solid rgba(155,125,255,0.2); display: flex; align-items: center; justify-content: center; }
+  .atlas-ico img { width: 34px; height: 34px; object-fit: contain; }
+  .atlas-name { font-size: 11px; color: #b6aee0; }
+
+  .full { margin-top: 0; }
+  .chart-box { position: relative; width: 100%; height: 210px; }
+
+  .footer-note { text-align: center; font-size: 11px; color: #7d74a8; margin-top: 26px; letter-spacing: 1px; }
+  @media (max-width: 760px) { .metrics { grid-template-columns: repeat(2,1fr); } .grid2 { grid-template-columns: 1fr; } .atlas { grid-template-columns: repeat(4,1fr); } }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <div class="avatar"><img src="{{AVATAR_ICON_PATH}}" alt="境界"></div>
+      <div>
+        <div class="h-tag">修 · 行 · 录</div>
+        <div class="h-name">{{DAOHAO}}</div>
+        <div class="h-sub">境界 <b>{{REALM_FULL}}</b>　|　距{{NEXT_REALM_LABEL}}还差 <b>{{GAP_NEXT}}</b> 修为</div>
+      </div>
+    </div>
+
+    <div class="metrics">
+      <div class="card metric">
+        <div class="m-ico"><img src="assets/icons/realm/realm_qi_training.png" alt=""></div>
+        <div><div class="m-label">修为</div><div class="m-val">{{XW}}</div></div>
+      </div>
+      <div class="card metric">
+        <div class="m-ico"><img src="assets/icons/talent/talent_xiuwei.png" alt=""></div>
+        <div><div class="m-label">总修仙分</div><div class="m-val">{{TOTAL}}</div></div>
+      </div>
+      <div class="card metric">
+        <div class="m-ico"><img src="assets/icons/resource/resource_lingshi.png" alt=""></div>
+        <div><div class="m-label">灵力石</div><div class="m-val">{{LINGSHI}}<span>枚</span></div></div>
+      </div>
+      <div class="card metric">
+        <div class="m-ico"><img src="assets/icons/talent/talent_root.png" alt=""></div>
+        <div><div class="m-label">连续活跃</div><div class="m-val">{{STREAK}}<span>天</span></div></div>
+      </div>
+    </div>
+
+    <div class="grid2">
+      <div class="card">
+        <div class="panel-title">修为精进</div>
+        <div class="ring-wrap">
+          <div class="ring">
+            <svg width="150" height="150">
+              <defs>
+                <linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#9b7dff"/><stop offset="100%" stop-color="#f5a623"/>
+                </linearGradient>
+              </defs>
+              <circle cx="75" cy="75" r="64" stroke="rgba(255,255,255,0.1)" stroke-width="12" fill="none"/>
+              <circle cx="75" cy="75" r="64" stroke="url(#rg)" stroke-width="12" fill="none"
+                stroke-linecap="round" stroke-dasharray="402" stroke-dashoffset="189"/>
+            </svg>
+            <div class="center"><div class="pct">{{PROGRESS_PCT}}%</div><div class="cap">{{REALM_FULL}}</div></div>
+          </div>
+          <div class="ring-info">
+            <div class="line">当前修为 <b>{{XW_CUR}}</b> / {{XW_NEXT}}</div>
+            <div class="line">下境：{{NEXT_REALM_LABEL}}</div>
+            <div class="bar-track"><div class="bar-fill" style="width:{{PROGRESS_PCT}}%"></div></div>
+          </div>
+        </div>
+
+        <div class="panel-title" style="margin-top:20px;">功法熟练</div>
+        <div id="skills"></div>
+      </div>
+
+      <div class="card">
+        <div class="panel-title">论道排名</div>
+        <div class="rank-line"><span>全网排名</span><span>第 <b>{{RANK_ALL}}</b> 名 / 共 {{RANK_TOTAL}} 人</span></div>
+        <div class="rank-line"><span>同境对手</span><span><b>{{RANK_SAME}}</b> 人</span></div>
+        <div class="rank-line"><span>论道战绩</span><span><b>{{WIN}}</b> 胜 <b>{{LOSE}}</b> 负</span></div>
+        <div class="rank-line"><span>掠得灵力石</span><span><b>{{LOOT}}</b> 枚</span></div>
+
+        <div class="panel-title" style="margin-top:20px;">功法图鉴</div>
+        <div class="atlas" id="atlas"></div>
+      </div>
+    </div>
+
+    <div class="card full">
+      <div class="panel-title">近七日修为流转</div>
+      <div class="chart-box"><canvas id="trend" role="img" aria-label="近七日修为趋势图">修为趋势图</canvas></div>
+    </div>
+
+    <div class="footer-note">{{FOOTER_NOTE}}</div>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+  var SKILLS = {{SKILLS_JS}};
+  var sb = document.getElementById('skills');
+  SKILLS.forEach(function(s){
+    var d = document.createElement('div'); d.className='skill-row';
+    d.innerHTML = '<div class="skill-ico"><img src="'+s.i+'" alt=""></div>'+
+      '<div class="skill-name">'+s.n+'</div>'+
+      '<div class="skill-bar"><div style="width:'+(s.v*10)+'%"></div></div>'+
+      '<div class="skill-num">'+s.v+'/10</div>';
+    sb.appendChild(d);
+  });
+
+  var at = document.getElementById('atlas');
+  SKILLS.forEach(function(s){
+    var d = document.createElement('div'); d.className='atlas-item';
+    d.innerHTML = '<div class="atlas-ico"><img src="'+s.i+'" alt=""></div><div class="atlas-name">'+s.n+'</div>';
+    at.appendChild(d);
+  });
+
+  var TREND = {{TREND_JS}};
+  var ctx = document.getElementById('trend').getContext('2d');
+  var grad = ctx.createLinearGradient(0,0,0,210);
+  grad.addColorStop(0,'rgba(155,125,255,0.55)'); grad.addColorStop(1,'rgba(155,125,255,0.02)');
+  if (window.Chart) {
+    new Chart(ctx, {
+      type:'line',
+      data:{ labels:['一','二','三','四','五','六','日'],
+        datasets:[{ label:'修为', data:TREND, borderColor:'#c9b8ff',
+          backgroundColor:grad, fill:true, tension:0.4, pointRadius:4, pointBackgroundColor:'#f5a623',
+          pointBorderColor:'#fff', pointBorderWidth:1.5, borderWidth:2.5 }]},
+      options:{ responsive:true, maintainAspectRatio:false,
+        plugins:{ legend:{display:false} },
+        scales:{ y:{ beginAtZero:false, grid:{color:'rgba(255,255,255,0.07)'}, ticks:{color:'#b6aee0',font:{size:11}} },
+          x:{ grid:{display:false}, ticks:{color:'#b6aee0',font:{size:11}} } } }
+    });
+  }
+
+  for (var i=0;i<18;i++){
+    var p=document.createElement('div'); p.className='particle';
+    var s=Math.random()*4+2;
+    p.style.width=s+'px'; p.style.height=s+'px';
+    p.style.left=Math.random()*100+'vw';
+    p.style.animationDuration=(Math.random()*14+10)+'s';
+    p.style.animationDelay=(-Math.random()*20)+'s';
+    document.body.appendChild(p);
+  }
+</script>
+</body>
+</html>

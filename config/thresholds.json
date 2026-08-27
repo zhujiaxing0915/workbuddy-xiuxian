@@ -1,0 +1,69 @@
+{
+  "version": "2.0",
+  "levels": [
+    {"realm": "练气", "sub": 1, "threshold": 0},
+    {"realm": "练气", "sub": 2, "threshold": 80},
+    {"realm": "练气", "sub": 3, "threshold": 180},
+    {"realm": "筑基", "sub": 1, "threshold": 500},
+    {"realm": "筑基", "sub": 2, "threshold": 800},
+    {"realm": "筑基", "sub": 3, "threshold": 1200},
+    {"realm": "金丹", "sub": 1, "threshold": 2000},
+    {"realm": "金丹", "sub": 2, "threshold": 2800},
+    {"realm": "金丹", "sub": 3, "threshold": 3800},
+    {"realm": "元婴", "sub": 1, "threshold": 5000},
+    {"realm": "元婴", "sub": 2, "threshold": 6500},
+    {"realm": "元婴", "sub": 3, "threshold": 8500},
+    {"realm": "化神", "sub": 1, "threshold": 12000},
+    {"realm": "化神", "sub": 2, "threshold": 16000},
+    {"realm": "化神", "sub": 3, "threshold": 22000},
+    {"realm": "大乘", "sub": 1, "threshold": 30000},
+    {"realm": "大乘", "sub": 2, "threshold": 45000},
+    {"realm": "大乘", "sub": 3, "threshold": 60000},
+    {"realm": "飞升", "sub": 1, "threshold": 80000},
+    {"realm": "飞升", "sub": 2, "threshold": 110000},
+    {"realm": "飞升", "sub": 3, "threshold": 150000}
+  ],
+  "scoring": {
+    "question_simple": 5,
+    "question_complex": 15,
+    "question_complex_skill": 25,
+    "task_base": 10,
+    "task_file": 20,
+    "task_file_cap": 3,
+    "task_closedoor": 100,
+    "skill_use": 10,
+    "skill_prof_cap": 10,
+    "streak_per_day": 2,
+    "streak_cap": 7,
+    "stone_session_min": 1,
+    "stone_session_max": 3,
+    "stone_holiday_bonus": 5,
+    "night_start": 20,
+    "night_end": 24
+  },
+  "pk": {
+    "unlock_realm": "练气",
+    "unlock_sub": 2,
+    "loot_min": 1,
+    "loot_max": 3,
+    "random_factor": 0.25,
+    "five_element": {
+      "傀儡": "望气",
+      "望气": "炼器",
+      "炼器": "阵盘",
+      "阵盘": "符箓",
+      "符箓": "傀儡"
+    }
+  },
+  "formula": {
+    "s_max": 70,
+    "d_max": 30,
+    "w_weight": 1,
+    "lingshi_weight": 0.5,
+    "skill_w": 10,
+    "win_w": 20,
+    "lose_w": -5,
+    "streak_w": 3
+  },
+  "random_reward_daily_cap": 3
+}

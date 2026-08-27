@@ -1,0 +1,12 @@
+{
+  "talents": [
+    {"id": "talent_root", "name": "灵脉根", "icon": "talent/root", "cost": 10, "currency": "lingshi",
+     "effect": {"xiuwei_mul": 1.08}, "desc": "修为获取 +8%"},
+    {"id": "talent_xiuwei", "name": "悟性", "icon": "talent/xiuwei", "cost": 15, "currency": "lingshi",
+     "effect": {"breakthrough_crit": 0.15}, "desc": "突破修为暴击 +15%"},
+    {"id": "talent_shuli", "name": "巧手", "icon": "talent/shuli", "cost": 15, "currency": "lingshi",
+     "effect": {"prof_speed": 2}, "desc": "功法熟练度提速（每用 +2）"},
+    {"id": "talent_xibie", "name": "专精", "icon": "talent/xibie", "cost": 20, "currency": "lingshi",
+     "effect": {"faction_bonus": 0.15}, "desc": "主修功法修为 +15%"}
+  ]
+}
