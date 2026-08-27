@@ -1,8 +1,65 @@
-# 修仙模式 Skill
+# 🧘 修仙模式 Skill（WorkBuddy）
 
-把 WorkBuddy 的每一次使用变成一场修行：提问历练、完成任务悟道、调用 Skill 修习功法，累计修为沿 **七境二十一阶** 晋升；并含灵力石、天赋树、随机奖励、论道 PK（异步真实对手）、双表防篡改核算与美化洞府主页。
+把 WorkBuddy 的每一次使用变成一场修行：**提问 = 历练、完成任务 = 悟道、调用 Skill = 修习功法、复杂任务 = 闭关突破**，累计修为沿 **七境二十一阶** 自动晋升；含灵力石、天赋树、随机奖励、论道 PK、双表防篡改核算、美化洞府主页与灵宠卡片。
 
-> 完整设计见配套《修仙模式需求文档 v2.0》。本文件为安装/使用/资源说明。
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](#)
+[![version](https://img.shields.io/badge/version-v2.0-7c5cff.svg)](#)
+[![GitHub stars](https://img.shields.io/github/stars/zhujiaxing0915/workbuddy-xiuxian?style=social)](https://github.com/zhujiaxing0915/workbuddy-xiuxian)
+
+> 完整设计见配套《修仙模式需求文档 v2.0》（`docs/`）。本文件为安装 / 使用 / 资源说明。
+
+## ✨ 特性
+
+- **七境二十一阶**：练气 → 筑基 → 金丹 → 元婴 → 化神 → 大乘 → 飞升，累计阈值自动突破，全程零交互静默运行
+- **五项计分**：提问历练 / 任务完成（含文件产出加成）/ Skill 功法（熟练度图鉴）/ 连续活跃道心 / 闭关突破
+- **灵力石**：夜间与法定节假日自动掉落，用于解锁**天赋树**（永久增益）
+- **随机奖励**：天材地宝 / 功法残卷 / 顿悟等，带条件限制 + 每日上限防刷
+- **论道 PK**：异步真实对手 + 五行克制结算（当前因同境对手生态未就绪而暂停，代码保留）
+- **防篡改**：`history.jsonl` 行为日志为唯一真相源，校验码粗筛 + PK 日志重放挑战（路线②）
+- **洞府主页**：玻璃卡 + 环形进度 + 渐变趋势图 + 功法图鉴 + 灵气粒子，双击即看
+- **灵宠卡片**：七大灵宠 × 幼体/成体/巅峰三形态 + 心情系统
+- **自动结算**：扫描 WorkBuddy 会话记录按真实使用自动计分，无需手动敲命令
+
+## 📸 预览
+
+> 洞府主页 / 灵宠卡片截图区（可替换为实际截图链接）
+
+## 🚀 快速开始（WorkBuddy 内安装）
+
+### 方式一：git clone（推荐）
+
+```bash
+# Windows（PowerShell / CMD）
+git clone https://github.com/zhujiaxing0915/workbuddy-xiuxian.git "%USERPROFILE%\.workbuddy\skills\xiuxian"
+
+# macOS / Linux
+git clone https://github.com/zhujiaxing0915/workbuddy-xiuxian.git ~/.workbuddy/skills/xiuxian
+```
+
+> ⚠️ 目标目录名必须为 `xiuxian`（与 `SKILL.md` 的 `name: xiuxian` 一致，WorkBuddy 按目录名发现技能）。若已存在同名目录，请先备份或删除。
+
+### 方式二：下载 ZIP
+
+1. GitHub 仓库页 → `Code` → `Download ZIP`
+2. 解压后把 `workbuddy-xiuxian-main` 目录**重命名为 `xiuxian`**
+3. 放到 WorkBuddy 用户级技能目录：`~/.workbuddy/skills/`（Windows 为 `C:\Users\<你>\.workbuddy\skills\`）
+
+### 启用
+
+1. **重启 WorkBuddy**（或刷新技能列表）让其扫描到新技能
+2. 聊天框输入 `/xiuxian 初始化 <道号>` 建立修炼身份（例如 `/xiuxian 初始化 青云子`）
+3. 输入 `/xiuxian 状态` 查看文字小结并打开洞府主页
+4. 可选 · 自动结算：管理员运行 `scripts\install_auto_reconcile.bat` 注册每日 09:00 / 21:00 计划任务，之后无需手动结算
+
+### 命令行验证（不依赖 WorkBuddy UI）
+
+```bash
+cd <skill 目录>/scripts
+python cli.py init <道号>      # 初始化
+python cli.py status           # 查看状态
+python cli.py verify           # 自校验
+```
 
 ## 目录结构
 ```
@@ -34,10 +91,9 @@ xiuxian-skill/
     └── icons_manifest.json   # 图标 id→路径/中文标签
 ```
 
-## 安装
-1. 将本 skill 文件夹整体放入 WorkBuddy 的 skills 目录（用户级 `~/.workbuddy/skills/` 或项目级）。
-2. 依赖：Python 3.10+（**仅标准库，无需 pip 安装**，腾讯在线后端为可选项）。
-3. 首次使用执行 `python scripts/cli.py init <道号>` 建立修炼身份。
+## 环境要求
+- Python 3.10+（**仅标准库，无需 pip 安装**；腾讯在线后端为可选项）。
+- 本 skill 零第三方依赖、离线可用；全部数据落在用户级 `~/.workbuddy/xiuxian/`。
 
 ### 导入分发版（给其他智能体）
 - 本仓库顶层目录名应为 `xiuxian`（与 `SKILL.md` 中 `name: xiuxian` 一致），解压/拷贝后即为 `~/.workbuddy/skills/xiuxian/`，WorkBuddy 重启或刷新技能列表后即可用 `/xiuxian` 调用。
@@ -89,3 +145,6 @@ xiuxian-skill/
 - 设置环境变量 `XIUXIAN_TENCENT=1`
 - 确保腾讯文档 CLI 存在：`~/.workbuddy/plugins/cache/workbuddy-builtin/tencent-docs-plugin/1.0.0/skills/tencent-docs/tencentdocs.py`
 - 表：`修仙论道榜`(WhliUmAAkOJL) / `修仙论道战报表`(WjaLwseDyatk)
+
+## License
+[MIT](LICENSE) © 2026 zhujiaxing0915
